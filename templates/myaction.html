@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyAction BB</title>
+    <link href="{{ url_for('static', filename='styles/style3.css') }}" rel="stylesheet" />
+</head>
+
+<body>
+    <h1>Deskvue.07 copy {{ title }}</h1>
+    <p>{{ status }} and {{ temp }} &deg;C</p>
+    <p>Feels like {{ feels_like }} &deg;C</p>
+
+    <form action="/weather">
+        <input type="text" name="city" id="city" placeholder="Enter X" />
+        <button type="submit">Submit</button>
+    <!--  <button type="none">action</button> -->
+    </form>
+    <form action="/myaction">
+        <button type="button">ON</button>
+        <button type="button">OFF</button>
+        <button type="button">exe0</button>
+        <button type="submit">exe1</button>
+    </form>
+    <a href=”/your_flask_funtion”><input type=”button” value=”value0”></a>
+</body>
+
+</html>
