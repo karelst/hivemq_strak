@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyAction BB</title>
     
-    <link href="{{ url_for('static', filename='styles/style3.css')}}" rel="stylesheet" />
-    <meta http-equiv="refresh" content="2">   <!-- Refresh page every 2 seconds -->
+    <link href="{{ url_for('static', filename='styles/style3.css') }}" rel="stylesheet" />
     <!--
     <link href="{{ url_for('static', filename='styles/style.css') }}" rel="stylesheet" />
     <meta http-equiv="refresh" content="2">  
-     -->
- /head>
+    -->
+    <meta http-equiv="refresh" content="2"> <!-- Refresh page every 2 seconds -->
+</head>
 
 <body>
     <h1>myaction {{ title }}</h1>
@@ -23,18 +24,23 @@
     <p>TeplarnaOnOff: {{ TeplarnaOnOff }}</p>
     <p>STRAKbeep: {{ STRAKbeep }}</p>
     
-    
 
+    <form action="/button_beep" method="get">
+        <button type="submit">Beep</button>
+    </form>
+
+    <form action="/button_update" method="get">
+        <button type="submit">Update</button>
+    </form>
   
     <form action="/button_stop" method="get">
         <button type="submit">Stop</button>
     </form>
-
-    <form action="/action_password" method="get">
-        <button type="submit">Action</button>
-    </form>
   
-    
+    <form action="/myaction?psw=ON" method="get">
+        <button type="submit">On</button>
+        <button type="submit">Off</button>
+    </form>
   </body>
 
 </html>

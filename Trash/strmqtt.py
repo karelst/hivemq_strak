@@ -19,7 +19,7 @@ import ssl
 def on_connect(client, userdata, flags, rc):
     print(f"Connected with result code {rc}")
     # Subscribe to topics (you can add more topics as needed)
-    print(f'HiveMQ server connected')
+
     client.subscribe("STRAKbeep")
     client.subscribe("STRAKbeepSubs")
     client.subscribe("InfoUpdate")
