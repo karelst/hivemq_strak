@@ -6,18 +6,18 @@
 
 body {
     padding: 2rem;
-    background-color: #05036d;
+    background-color: #1f0202;
     color: whitesmoke;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 2rem;
+    align-items: left;
+    gap: 1rem;
     font-size: 2rem;
 }
 
 input, button {
-    font-size: 2rem;
+    font-size: 1rem;
     padding: 1rem;
     border-radius: 5px;
 }
