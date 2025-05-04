@@ -28,6 +28,10 @@ def action_confirm():
     cmd = request.args.get('cmd')
     psw = request.args.get('psw')
     print(f'***Confirm---{cmd}*{psw}---***')
+
+    if psw != "strak":
+      return action('psw', psw )
+    #return render_template('index.html')
     
     if cmd == 'update':
         strmqtt_bg.publish('InfoUpdate',1)
@@ -51,7 +55,9 @@ def action_confirm():
 def maction():
     psw = request.args.get('psw')
     print(f'{psw} SUBMIT---***')
-    return action('psw', psw )
+    if psw == "strak":
+      return action('psw', psw )
+    return render_template('index.html')
     
 @app.route('/button_stop')
 def stop_action():
