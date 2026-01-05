@@ -1,4 +1,4 @@
-#strmqtt_bg.py
+
 import paho.mqtt.client as mqtt
 import ssl
 import time
@@ -80,8 +80,8 @@ class MqttApp:
 
         
         broker = os.getenv("MQ_URL")
-        #port = 8883
-        port = int(os.getenv("PORT"))
+        port = 8883
+        # port = int(os.getenv("PORT"))
         # print(f">>>>>>>>>>>>>>>\\\broker,port..{broker},{port}")
         self.client.connect(broker, port, 60)
         self.client.loop_start()
