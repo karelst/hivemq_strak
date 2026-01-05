@@ -33,7 +33,18 @@ def action(subject ,data):
     #     Mq.publish('InfoUpdate','1')
     
     topic_values = Mq.get_topic_values()
-    print(f'--- new data: {topic_values}')
+    # print(f'--- new data: {topic_values}')
+        # 'STRAKbeep': 'none', 
+        # 'STRAKbeepSubs': 'none', 
+        # 'InfoUpdate': '0', 
+        # 'TeplarnaOnOff': -1, 
+        # 'TeplarnaOnOffSubs': 'On', 
+        # 'isalive': '0', 
+        # 'TeplarnaStav': 'Zapnuto', 
+        # 'teploty': 'wcH:9.1 wcD:13.7 H:11.7 D:11.6 Sklep:15.2 ', 
+        # 'pir': ':56c, 14:56k, 14:56c, 14:56k, 14:57k, 14:58c, 14:59c',
+        # 'WillTopic': 'STRAK ONline'}
+    
     #print(f'action->RENDER myaction.html : subject={subject} :: data={data}***')
     return render_template('myaction.html',
                            title=data,
@@ -44,7 +55,7 @@ def action(subject ,data):
                            TeplarnaStav = topic_values["TeplarnaStav"],
                            InfoUpdate = topic_values["InfoUpdate"],
                            TeplarnaOnOff = topic_values["TeplarnaOnOffSubs"],
-                           STRAKbeep = topic_values["STRAKbeep"]
+                           STRAKbeep = topic_values["STRAKbeepSubs"]
                            )
 
     
@@ -89,7 +100,7 @@ def action_confirm():
     elif cmd == 'TeplarnaOnOff_On':
         Mq.publish('TeplarnaOnOff','On')
     ##	mqttClient20.Publish(&S"TeplarnaOnOff",&S"On",1)
-     #   Mq.publish('TeplarnaOnOff','On') 
+    #   Mq.publish('TeplarnaOnOff','On') 
         print(f'*** publish( --{cmd}***')
     elif cmd == 'other':
     #    Mq.publish('STRAKbeep',1)
