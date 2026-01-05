@@ -80,10 +80,11 @@ class MqttApp:
 
         
         broker = os.getenv("MQ_URL")
-        port = 8883
-        # port = int(os.getenv("PORT"))
-        # print(f">>>>>>>>>>>>>>>\\\broker,port..{broker},{port}")
-        self.client.connect(broker, port, 60)
+        nport = 8883
+        mport = int(os.getenv("PORT"))
+        print(f">>>>>>>>broker,port..{broker} , {mport}")
+        # self.client.connect(broker, port, 60)
+        self.client.connect(broker, 8883, 60)
         self.client.loop_start()
 
         time.sleep(1)
