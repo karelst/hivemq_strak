@@ -2,6 +2,8 @@
 import paho.mqtt.client as mqtt
 import ssl
 import time
+from dotenv import load_dotenv
+import os
 
 
 class MqttApp:
@@ -65,16 +67,21 @@ class MqttApp:
         self.client.tls_set(
             tls_version=ssl.PROTOCOL_TLSv1_2
         )
+        load_dotenv()  # loads variables from .env into environment
 
-        self.client.username_pw_set("dashboard2", "Legolas007")
+        hive_user = os.getenv("MQ_USERNAME")
+        hive_psw = os.getenv("MQ_PSW")
+       
+        self.client.username_pw_set(hive_user, hive_psw )
 
         # callbacks
         self.client.on_connect = self.on_connect
         self.client.on_message = self.on_message
 
-        broker = "f3d0981b4d84442f9406f8b208f421b0.s1.eu.hivemq.cloud"
-        port = 8883
-
+        
+        broker = os.getenv("MQ_URL")
+        #port = 8883
+        port = int(os.getenv("PORT"))
         self.client.connect(broker, port, 60)
         self.client.loop_start()
 

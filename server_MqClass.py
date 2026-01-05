@@ -3,7 +3,6 @@ from flask import Flask, render_template, request
 from waitress import serve
 from strmqtt_Class import MqttApp
 import time
-#import strmqtt_bg
 
 
 app = Flask(__name__)
@@ -44,7 +43,7 @@ def action(subject ,data):
                            pir=topic_values["pir"],
                            TeplarnaStav = topic_values["TeplarnaStav"],
                            InfoUpdate = topic_values["InfoUpdate"],
-                           TeplarnaOnOff = topic_values["TeplarnaOnOff"],
+                           TeplarnaOnOff = topic_values["TeplarnaOnOffSubs"],
                            STRAKbeep = topic_values["STRAKbeep"]
                            )
 
