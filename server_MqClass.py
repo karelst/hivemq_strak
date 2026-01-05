@@ -33,7 +33,7 @@ def action(subject ,data):
     #     Mq.publish('InfoUpdate','1')
     
     topic_values = Mq.get_topic_values()
-    #print(f'--- new data: {topic_values}')
+    print(f'--- new data: {topic_values}')
     #print(f'action->RENDER myaction.html : subject={subject} :: data={data}***')
     return render_template('myaction.html',
                            title=data,

@@ -73,7 +73,7 @@ class MqttApp:
         hive_psw = os.getenv("MQ_PSW")
        
         self.client.username_pw_set(hive_user, hive_psw )
-
+        # print(f">>>>>>>>>>>>>>>\\\hive_user, hive_psw...{hive_user},{hive_psw}")
         # callbacks
         self.client.on_connect = self.on_connect
         self.client.on_message = self.on_message
@@ -82,6 +82,7 @@ class MqttApp:
         broker = os.getenv("MQ_URL")
         #port = 8883
         port = int(os.getenv("PORT"))
+        # print(f">>>>>>>>>>>>>>>\\\broker,port..{broker},{port}")
         self.client.connect(broker, port, 60)
         self.client.loop_start()
 
